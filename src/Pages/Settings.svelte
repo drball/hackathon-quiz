@@ -16,13 +16,12 @@
         }
 
         // Save user
-        user.update(() => {
-            return {
-                'name': username,
-                'color': colour,
-                'image': image,
-                'configured': true
-            }
+        user.update((user) => {
+            user.name = username;
+            user.colour = colour;
+            user.image = image;
+            user.configured = true;
+            return user;
         });
 
         // Back to menu

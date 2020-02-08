@@ -9,6 +9,6 @@
 </style>
 
 <div>
-    <Button label="Mrs Moneypenny's an Ejit" />
-    <Button label="Granny Scroggins" />
+    <Button label="Play with friends" />
+    <Button label="Settings" />
 </div>

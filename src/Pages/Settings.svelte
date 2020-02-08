@@ -4,20 +4,36 @@
     import { user } from '../Stores/User.js'
 
     let username;
+    let colour;
+    let image;
 
-    function save() {
+    // Update
+    function saveUser() {
+
+        // Don't allow continue without setting a name
+        if (username.length <= 0) {
+            return;
+        }
+
+        // Save user
         user.update(() => {
             return {
                 'name': username,
-                'color': '',
-                'image': ''
+                'color': colour,
+                'image': image,
+                'configured': true
             }
         });
+
+        // Back to menu
         push('/');
     }
 
-    const unsubscribe = user.subscribe(value => {
+    // Subscribe to user event changes
+    user.subscribe(value => {
         username = value.name;
+        colour = value.colour;
+        image = value.image;
     });
 
 </script>
@@ -27,6 +43,12 @@
 <label for="name">Your nickname</label>
 <input type="text" id="name" bind:value={ username } />
 
+<label for="name">Colour</label>
+<input type="text" id="name" bind:value={ colour } />
 
-<Button label="Save" action="{save}" />
+<label for="name">Image</label>
+<input type="text" id="name" bind:value={ image } />
+
+
+<Button label="Save" action="{saveUser}" />
 

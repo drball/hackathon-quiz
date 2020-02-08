@@ -11,6 +11,7 @@
 
 <script>
 	export let label;
+	export let action;
 </script>
 
-<a href="#">{ label }</a>
+<a href="#" on:click={action}>{ label }</a>
